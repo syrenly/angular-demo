@@ -1,23 +1,33 @@
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   // 📖 More about NgClass and NgStyle: https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/
-  imports: [NgClass],
+  imports: [NgClass, NgStyle],
   template: `
     <button (click)="onClickButton('primary')">Primary</button>
     <button (click)="onClickButton('danger')">Danger</button>
     <button (click)="onClickButton('success')">Success</button>
 
-    <h6>Dynamic attribute class</h6>
+    <h4>Dynamic class names</h4>
+    <div
+      class="alert"
+      [class.danger]="alert.type === 'danger'"
+      [class.success]="alert.type === 'success'"
+      [class.primary]="alert.type === 'primary'"
+    >
+      {{ alert.msg }}
+    </div>
+
+    <h4>Dynamic attribute class</h4>
     <!-- 📝 this is not suggested, since every mouse/keyboard event triggers change detection and the evaluation of the getClass method -->
     <div [class]="getClass()">
       {{ alert.msg }}
     </div>
 
-    <h6>NgClass</h6>
+    <h4>NgClass</h4>
     <!--  📝 NgClass is a Directive that should be imported in the "imports" array in the metadata.
           If more conditions are satisfied, the relative classes will be applied together; in case of overlapping of styles, the one with more SPECIFICITY will be applied over the others.
           More about specificity concept:
@@ -36,7 +46,7 @@ import { Component } from '@angular/core';
       {{ alert.msg }}
     </div>
 
-    <h6>Inline styles</h6>
+    <h4>Inline styles</h4>
     <!-- 📝 The directive style can be concatenate with css properties and bounded to a property through data binding.
          Sometimes, the single css property is not enough, as in the case of fontSize, width, etc, where a unit of measure should be specified:
          a suffix can be concatenated after the css property and in this case we talk about "suffix operator"
@@ -50,14 +60,14 @@ import { Component } from '@angular/core';
       {{ alert.msg }}
     </div>
 
-    <h6>NgStyle</h6>
-    <div class="alert" [ngStyle]="styles">
-      {{ text }}
-    </div>
-
+    <h4>NgStyle</h4>
     <button (click)="onClickStylesButton('primary')">Primary</button>
     <button (click)="onClickStylesButton('danger')">Danger</button>
     <button (click)="onClickStylesButton('success')">Success</button>
+
+    <div class="alert" [ngStyle]="styles">
+      {{ text }}
+    </div>
   `,
   styles: [
     `
@@ -65,6 +75,7 @@ import { Component } from '@angular/core';
         padding: 20px;
         border: 4px solid black;
         border-radius: 20px;
+        margin-top: 10px;
       }
       .primary {
         background-color: blue;
@@ -108,7 +119,7 @@ export class AppComponent {
 
   text = 'Hello Styles';
 
-  getCls(): 'alert danger' | 'alert success' | 'alert primary' {
+  getClass(): 'alert danger' | 'alert success' | 'alert primary' {
     switch (this.alert.type) {
       case 'danger':
         return 'alert danger';
