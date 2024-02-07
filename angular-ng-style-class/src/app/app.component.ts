@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
 
     <h4>Dynamic class names</h4>
     <div
-      class="alert"
+      class="my-alert"
       [class.danger]="alert.type === 'danger'"
       [class.success]="alert.type === 'success'"
       [class.primary]="alert.type === 'primary'"
@@ -36,7 +36,7 @@ import { Component } from '@angular/core';
           📖 https://css-tricks.com/specifics-on-css-specificity/
       -->
     <div
-      class="alert"
+      class="my-alert"
       [ngClass]="{
         primary: alert.type === 'primary',
         danger: alert.type === 'danger',
@@ -52,7 +52,7 @@ import { Component } from '@angular/core';
          a suffix can be concatenated after the css property and in this case we talk about "suffix operator"
         -->
     <div
-      class="alert"
+      class="my-alert"
       [style.background-color]="alert.bg"
       [style.color]="alert.color"
       [style.width.px]="alert.width"
@@ -65,13 +65,30 @@ import { Component } from '@angular/core';
     <button (click)="onClickStylesButton('danger')">Danger</button>
     <button (click)="onClickStylesButton('success')">Success</button>
 
-    <div class="alert" [ngStyle]="styles">
+    <div class="my-alert" [ngStyle]="styles">
       {{ text }}
     </div>
+
+    <h4>Use Bootstrap Classes</h4>
+
+    <div
+      class="alert"
+      [ngClass]="{
+        'alert-primary': alert.type === 'primary',
+        'alert-danger': alert.type === 'danger',
+        'alert-success': alert.type === 'success',
+      }"
+    >
+      {{ alert.msg }} - {{ alert.type }}
+    </div>
+
+    <button (click)="onClickButton('primary')">Primary</button>
+    <button (click)="onClickButton('danger')">Danger</button>
+    <button (click)="onClickButton('success')">Success</button>
   `,
   styles: [
     `
-      .alert {
+      .my-alert {
         padding: 20px;
         border: 4px solid black;
         border-radius: 20px;
@@ -119,15 +136,15 @@ export class AppComponent {
 
   text = 'Hello Styles';
 
-  getClass(): 'alert danger' | 'alert success' | 'alert primary' {
+  getClass(): 'my-alert danger' | 'my-alert success' | 'my-alert primary' {
     switch (this.alert.type) {
       case 'danger':
-        return 'alert danger';
+        return 'my-alert danger';
       case 'success':
-        return 'alert success';
+        return 'my-alert success';
       default:
       case 'primary':
-        return 'alert primary';
+        return 'my-alert primary';
     }
   }
 
@@ -183,7 +200,7 @@ export class AppComponent {
     let styles = null;
     switch (type) {
       case 'primary': {
-        styles = { backgroundColor: 'blue', color: 'black', fontSize: '10px' };
+        styles = { backgroundColor: 'blue', color: 'white', fontSize: '10px' };
         break;
       }
       case 'success': {

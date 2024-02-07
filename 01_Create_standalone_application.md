@@ -42,3 +42,10 @@ Another way to create an Angular project, without installing globally the CLI, i
 ```
     npm init @angular@latest [project-name] --param1 --param2 --param3
 ```
+
+## Run the application
+
+To run the application, execute the following command: `ng serve`. This command **builds** and **serve** the application on the local port 4200. It provides also a **live reloading**, meaning that the application will be rebuilt automatically when a change is detected in the source code.
+
+> What does it mean "serve"?
+> The Angular CLI starts a local server that hosts the application and exposes it in a local port. "Serve" means make the application available to be accessed and used.
