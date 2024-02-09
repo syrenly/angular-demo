@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   // 📖 More about NgClass and NgStyle: https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/
   imports: [NgClass, NgStyle],
   template: `
-    <button (click)="onClickButton('primary')">Primary</button>
-    <button (click)="onClickButton('danger')">Danger</button>
-    <button (click)="onClickButton('success')">Success</button>
+    <button type="button" (click)="onClickButton('primary')">Primary</button>
+    <button type="button" (click)="onClickButton('danger')">Danger</button>
+    <button type="button" (click)="onClickButton('success')">Success</button>
 
     <h4>Dynamic class names</h4>
     <div
@@ -61,9 +61,15 @@ import { Component } from '@angular/core';
     </div>
 
     <h4>NgStyle</h4>
-    <button (click)="onClickStylesButton('primary')">Primary</button>
-    <button (click)="onClickStylesButton('danger')">Danger</button>
-    <button (click)="onClickStylesButton('success')">Success</button>
+    <button type="button" (click)="onClickStylesButton('primary')">
+      Primary
+    </button>
+    <button type="button" (click)="onClickStylesButton('danger')">
+      Danger
+    </button>
+    <button type="button" (click)="onClickStylesButton('success')">
+      Success
+    </button>
 
     <div class="my-alert" [ngStyle]="styles">
       {{ text }}
@@ -82,9 +88,9 @@ import { Component } from '@angular/core';
       {{ alert.msg }} - {{ alert.type }}
     </div>
 
-    <button (click)="onClickButton('primary')">Primary</button>
-    <button (click)="onClickButton('danger')">Danger</button>
-    <button (click)="onClickButton('success')">Success</button>
+    <button type="button" (click)="onClickButton('primary')">Primary</button>
+    <button type="button" (click)="onClickButton('danger')">Danger</button>
+    <button type="button" (click)="onClickButton('success')">Success</button>
   `,
   styles: [
     `
