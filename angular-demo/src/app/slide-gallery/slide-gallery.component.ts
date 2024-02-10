@@ -13,9 +13,9 @@ export class SlideGalleryComponent {
   product = {
     name: 'T-Shirt',
     images: [
-      { path: 'assets/images/angular.png', label: 'Angular' },
-      { path: 'assets/images/react.png', label: 'React' },
-      { path: 'assets/images/js.png', label: 'JS' },
+      { path: 'assets/images/angular.webp', label: 'Angular' },
+      { path: 'assets/images/react.webp', label: 'React' },
+      { path: 'assets/images/js.webp', label: 'JS' },
     ],
     website: 'https://www.fabiobiondi.dev',
   };
