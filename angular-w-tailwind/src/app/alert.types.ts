@@ -1,5 +1,5 @@
 /** Type of alert, based on the priority or severity */
-export type AlertType = "primary" | "success" | "danger" | "unknown";
+export type AlertType = "primary" | "success" | "danger" | "default";
 /** Properties that define an alert */
 export interface IAlertInfo {
 	message: string;

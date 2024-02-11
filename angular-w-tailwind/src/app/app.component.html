@@ -6,5 +6,31 @@
 	>
 </div>
 
+<ng-template #buttonTemplate let-type>
+	<button
+		type="button"
+		class="bg-sky-400 px-2 py-1 rounded-xl"
+		(click)="onChangeAlertType(type)"
+	>
+		{{ type | uppercase }}
+	</button>
+</ng-template>
+
+<div class="flex gap-3">
+	<!-- ngTemplateOutlet, using input notation -->
+	<ng-container
+		[ngTemplateOutlet]="buttonTemplate"
+		[ngTemplateOutletContext]="{ $implicit: 'primary' }"
+	></ng-container>
+	<ng-container
+		[ngTemplateOutlet]="buttonTemplate"
+		[ngTemplateOutletContext]="{ $implicit: 'danger' }"
+	></ng-container>
+	<!-- ngTemplateOutlet, using directive notation -->
+	<ng-container
+		*ngTemplateOutlet="buttonTemplate; context: { $implicit: 'success' }"
+	></ng-container>
+</div>
+
 <h4>Use Tailwind Classes</h4>
-<app-alert-class-tailwind [alert]="alert"></app-alert-class-tailwind>
+<app-alert-apply-tailwind [alert]="alert"></app-alert-apply-tailwind>

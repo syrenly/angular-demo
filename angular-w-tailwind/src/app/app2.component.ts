@@ -14,35 +14,6 @@ import { AlertClassTailwindComponent } from "./alert-class-tailwind/alert-class-
 	template: `
 		<app-alert-class-tailwind [alert]="alert"></app-alert-class-tailwind>
 
-		<ng-template #buttonTemplate let-type>
-			<button
-				type="button"
-				class="bg-sky-400 px-2 py-1 rounded-xl"
-				(click)="onClickButton(type)"
-			>
-				{{ type | uppercase }}
-			</button>
-		</ng-template>
-
-		<div class="flex gap-3">
-			<!-- ngTemplateOutlet, using input notation -->
-			<ng-container
-				[ngTemplateOutlet]="buttonTemplate"
-				[ngTemplateOutletContext]="{ $implicit: 'primary' }"
-			></ng-container>
-			<ng-container
-				[ngTemplateOutlet]="buttonTemplate"
-				[ngTemplateOutletContext]="{ $implicit: 'danger' }"
-			></ng-container>
-			<!-- ngTemplateOutlet, using directive notation -->
-			<ng-container
-				*ngTemplateOutlet="
-					buttonTemplate;
-					context: { $implicit: 'success' }
-				"
-			></ng-container>
-		</div>
-
 		<div class="m-2">
 			<h4>Use Tailwind Classes - 2 - use classes (apply)</h4>
 
@@ -144,52 +115,4 @@ export class AppComponent {
 	};
 
 	text = "Hello Styles";
-
-	onClickButton(type: "danger" | "success" | "primary"): void {
-		let alert = null;
-		switch (type) {
-			case "primary": {
-				alert = {
-					message: "Hello!",
-					type,
-					width: 100,
-					backgroundColor: "blue",
-					color: "white",
-				};
-				break;
-			}
-			case "success": {
-				alert = {
-					message: "Oh, yeah!",
-					type,
-					width: 200,
-					backgroundColor: "lightgreen",
-					color: "black",
-				};
-
-				break;
-			}
-			case "danger": {
-				alert = {
-					message: "Oh, no!",
-					type,
-					width: 150,
-					backgroundColor: "red",
-					color: "white",
-				};
-				break;
-			}
-			default: {
-				alert = {
-					message: "Unknown status",
-					type,
-					width: 200,
-					backgroundColor: "violet",
-					color: "white",
-				};
-				break;
-			}
-		}
-		this.alert = alert;
-	}
 }
