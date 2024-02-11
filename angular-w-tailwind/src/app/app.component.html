@@ -1,36 +1,67 @@
-<div class="title">Tailwind</div>
-<div>
-	<span>📖 More info about </span>
-	<a href="https://tailwindcss.com/docs/guides/angular" target="_blank"
-		>Tailwind for Angular</a
-	>
+<div class="divide-y divide-solid">
+	<div class="introduction">
+		<h4 class="title">Tailwind</h4>
+		<div class="mb-4">
+			<span>📖 More info about </span>
+			<a
+				href="https://tailwindcss.com/docs/guides/angular"
+				target="_blank"
+				>Tailwind for Angular</a
+			>
+		</div>
+
+		<ng-template #buttonTemplate let-type>
+			<button
+				type="button"
+				class="bg-sky-400 px-2 py-1 rounded-xl"
+				(click)="onChangeAlertType(type)"
+			>
+				{{ type | uppercase }}
+			</button>
+		</ng-template>
+
+		<div class="flex gap-3">
+			<!-- ngTemplateOutlet, using input notation -->
+			<ng-container
+				[ngTemplateOutlet]="buttonTemplate"
+				[ngTemplateOutletContext]="{ $implicit: 'primary' }"
+			></ng-container>
+			<ng-container
+				[ngTemplateOutlet]="buttonTemplate"
+				[ngTemplateOutletContext]="{ $implicit: 'danger' }"
+			></ng-container>
+			<!-- ngTemplateOutlet, using directive notation -->
+			<ng-container
+				*ngTemplateOutlet="
+					buttonTemplate;
+					context: { $implicit: 'success' }
+				"
+			></ng-container>
+		</div>
+	</div>
+	<div class="paragraph">
+		<h5>Use Tailwind Classes</h5>
+		<app-alert-apply-tailwind
+			class="mb-4"
+			[alert]="alert"
+			(resetRequested)="onChangeAlertType('default')"
+		></app-alert-apply-tailwind>
+	</div>
+	<div class="paragraph">
+		<h5>Use Tailwind Media Queries</h5>
+		<div class="mb-4">
+			<span>📖 More info about </span>
+			<a href="https://tailwindcss.com/docs/max-width" target="_blank"
+				>media queries and breakpoints</a
+			>
+		</div>
+		<app-alert-media-queries-tailwind
+			class="mb-4"
+			[alert]="alert"
+		></app-alert-media-queries-tailwind>
+	</div>
+	<div class="paragraph">
+		<h5 class="mt-4">Input with Daisy UI</h5>
+		<app-daisy-ui-inputs></app-daisy-ui-inputs>
+	</div>
 </div>
-
-<ng-template #buttonTemplate let-type>
-	<button
-		type="button"
-		class="bg-sky-400 px-2 py-1 rounded-xl"
-		(click)="onChangeAlertType(type)"
-	>
-		{{ type | uppercase }}
-	</button>
-</ng-template>
-
-<div class="flex gap-3">
-	<!-- ngTemplateOutlet, using input notation -->
-	<ng-container
-		[ngTemplateOutlet]="buttonTemplate"
-		[ngTemplateOutletContext]="{ $implicit: 'primary' }"
-	></ng-container>
-	<ng-container
-		[ngTemplateOutlet]="buttonTemplate"
-		[ngTemplateOutletContext]="{ $implicit: 'danger' }"
-	></ng-container>
-	<!-- ngTemplateOutlet, using directive notation -->
-	<ng-container
-		*ngTemplateOutlet="buttonTemplate; context: { $implicit: 'success' }"
-	></ng-container>
-</div>
-
-<h4>Use Tailwind Classes</h4>
-<app-alert-apply-tailwind [alert]="alert"></app-alert-apply-tailwind>

@@ -3,7 +3,7 @@
 	@apply bg-sky-600 px-3 py-1 rounded-xl text-white;
 }
 .alert-tailwind {
-	@apply border-4 border-black rounded-xl p-5 my-3;
+	@apply border-2 border-black rounded-xl p-5 my-3;
 }
 .alert-primary-tailwind {
 	@apply bg-sky-600 text-white;
@@ -13,7 +13,4 @@
 }
 .alert-success-tailwind {
 	@apply bg-green-200 text-black;
-}
-.daisy-input {
-	@apply input input-bordered;
 }
