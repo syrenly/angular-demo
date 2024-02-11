@@ -1,36 +1,36 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-slide-gallery',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './slide-gallery.component.html',
-  styleUrl: './slide-gallery.component.scss',
+	selector: "app-slide-gallery",
+	standalone: true,
+	imports: [CommonModule],
+	templateUrl: "./slide-gallery.component.html",
+	styleUrl: "./slide-gallery.component.scss",
 })
 export class SlideGalleryComponent {
-  currentIndex = 0;
-  product = {
-    name: 'T-Shirt',
-    images: [
-      { path: 'assets/images/angular.webp', label: 'Angular' },
-      { path: 'assets/images/react.webp', label: 'React' },
-      { path: 'assets/images/js.webp', label: 'JS' },
-    ],
-    website: 'https://www.fabiobiondi.dev',
-  };
+	currentIndex = 0;
+	product = {
+		name: "T-Shirt",
+		images: [
+			{ path: "assets/images/angular.webp", label: "Angular" },
+			{ path: "assets/images/react.webp", label: "React" },
+			{ path: "assets/images/js.webp", label: "JS" },
+		],
+		website: "https://www.fabiobiondi.dev",
+	};
 
-  previousImage(): void {
-    this.currentIndex =
-      this.currentIndex > 0
-        ? this.currentIndex - 1
-        : this.product.images.length - 1;
-  }
+	previousImage(): void {
+		this.currentIndex =
+			this.currentIndex > 0
+				? this.currentIndex - 1
+				: this.product.images.length - 1;
+	}
 
-  nextImage(): void {
-    this.currentIndex =
-      this.currentIndex < this.product.images.length - 1
-        ? this.currentIndex + 1
-        : 0;
-  }
+	nextImage(): void {
+		this.currentIndex =
+			this.currentIndex < this.product.images.length - 1
+				? this.currentIndex + 1
+				: 0;
+	}
 }
