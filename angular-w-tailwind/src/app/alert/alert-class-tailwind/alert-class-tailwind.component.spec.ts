@@ -5,7 +5,7 @@ describe("AlertClassTailwindComponent", () => {
 	let component: AlertClassTailwindComponent;
 	let fixture: ComponentFixture<AlertClassTailwindComponent>;
 
-	beforeEach(async () => {
+	beforeEach(async (): Promise<void> => {
 		await TestBed.configureTestingModule({
 			imports: [AlertClassTailwindComponent],
 		}).compileComponents();
@@ -15,7 +15,7 @@ describe("AlertClassTailwindComponent", () => {
 		fixture.detectChanges();
 	});
 
-	it("should create", () => {
+	it("should create", (): void => {
 		expect(component).toBeTruthy();
 	});
 });
