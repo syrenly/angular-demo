@@ -4,14 +4,25 @@ import { Component } from "@angular/core";
 @Component({
 	selector: "app-root",
 	standalone: true,
-	// 📖 More about NgClass and NgStyle: https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/
 	imports: [NgClass, NgStyle],
 	template: `
-		<button type="button" (click)="onClickButton('primary')">
+		<h4>Styles And Bootstrap</h4>
+		<div>
+			📖 More about NgClass and NgStyle:
+			<a
+				href="https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/"
+				target="_blank"
+				>ngstyle-and-ngclass</a
+			>
+		</div>
+		<div class="mb-3">Click the buttons below to change the alert type</div>
+		<button type="button" (click)="onChangeAlertType('primary')">
 			Primary
 		</button>
-		<button type="button" (click)="onClickButton('danger')">Danger</button>
-		<button type="button" (click)="onClickButton('success')">
+		<button type="button" (click)="onChangeAlertType('danger')">
+			Danger
+		</button>
+		<button type="button" (click)="onChangeAlertType('success')">
 			Success
 		</button>
 
@@ -26,19 +37,46 @@ import { Component } from "@angular/core";
 		</div>
 
 		<h4>Dynamic attribute class</h4>
-		<!-- 📝 this is not suggested, since every mouse/keyboard event triggers change detection and the evaluation of the getClass method -->
+		<div class="mb-3">
+			This case is not suggested, since every mouse/keyboard event
+			triggers change detection and the evaluation of the getClass method
+		</div>
 		<div [class]="getClass()">
 			{{ alert.message }}
 		</div>
 
 		<h4>NgClass</h4>
-		<!--  📝 NgClass is a Directive that should be imported in the "imports" array in the metadata.
-			If more conditions are satisfied, the relative classes will be applied together; in case of overlapping of styles, the one with more SPECIFICITY will be applied over the others.
-			More about specificity concept:
-			📖 https://www.w3schools.com/css/css_specificity.asp
-			📖 https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
-			📖 https://css-tricks.com/specifics-on-css-specificity/
-		-->
+		<div class="mb-3">
+			NgClass is a Directive that should be imported in the "imports"
+			array in the metadata. If more conditions are satisfied, the
+			relative classes will be applied together; in case of overlapping of
+			styles, the one with more SPECIFICITY will be applied over the
+			others. More about specificity concept:
+			<li>
+				📖
+				<a
+					href="https://www.w3schools.com/css/css_specificity.asp"
+					target="_blank"
+					>w3schools</a
+				>
+			</li>
+			<li>
+				📖
+				<a
+					href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity"
+					target="_blank"
+					>developer.mozilla</a
+				>
+			</li>
+			<li>
+				📖
+				<a
+					href="https://css-tricks.com/specifics-on-css-specificity/"
+					target="_blank"
+					>css-tricks</a
+				>
+			</li>
+		</div>
 		<div
 			class="my-alert"
 			[ngClass]="{
@@ -51,10 +89,14 @@ import { Component } from "@angular/core";
 		</div>
 
 		<h4>Inline styles</h4>
-		<!-- 📝 The directive style can be concatenate with css properties and bounded to a property through data binding.
-			Sometimes, the single css property is not enough, as in the case of fontSize, width, etc, where a unit of measure should be specified:
-			a suffix can be concatenated after the css property and in this case we talk about "suffix operator"
-		-->
+		<div class="mb-3">
+			The directive style can be concatenate with css properties and
+			bounded to a property through data binding. Sometimes, the single
+			css property is not enough, as in the case of fontSize, width, etc,
+			where a unit of measure should be specified: a suffix can be
+			concatenated after the css property and in this case we talk about
+			"suffix operator"
+		</div>
 		<div
 			class="my-alert"
 			[style.background-color]="alert.backgroundColor"
@@ -65,15 +107,6 @@ import { Component } from "@angular/core";
 		</div>
 
 		<h4>NgStyle</h4>
-		<button type="button" (click)="onClickStylesButton('primary')">
-			Primary
-		</button>
-		<button type="button" (click)="onClickStylesButton('danger')">
-			Danger
-		</button>
-		<button type="button" (click)="onClickStylesButton('success')">
-			Success
-		</button>
 
 		<div class="my-alert" [ngStyle]="styles">
 			{{ text }}
@@ -91,20 +124,16 @@ import { Component } from "@angular/core";
 		>
 			{{ alert.message }} - {{ alert.type }}
 		</div>
-
-		<button type="button" (click)="onClickButton('primary')">
-			Primary
-		</button>
-		<button type="button" (click)="onClickButton('danger')">Danger</button>
-		<button type="button" (click)="onClickButton('success')">
-			Success
-		</button>
 	`,
 	styles: [
 		`
+			:host {
+				display: block;
+				padding: 1rem;
+			}
 			.my-alert {
 				padding: 20px;
-				border: 4px solid black;
+				border: 1px solid black;
 				border-radius: 20px;
 				margin-top: 10px;
 			}
@@ -124,6 +153,7 @@ import { Component } from "@angular/core";
 	],
 })
 export class AppComponent {
+	/**	The alert to be shown */
 	alert: {
 		message: string;
 		type: "primary" | "success" | "danger" | "unknown";
@@ -137,7 +167,7 @@ export class AppComponent {
 		backgroundColor: "blue",
 		color: "white",
 	};
-
+	/** Additional styles to be used with NgStyle directive */
 	styles: {
 		backgroundColor: string;
 		color: string;
@@ -147,9 +177,9 @@ export class AppComponent {
 		color: "white",
 		fontSize: "100px",
 	};
-
+	/** A default text to be used in an alert */
 	text = "Hello Styles";
-
+	/** Retrieve dynamically alert classes, based on the alert type */
 	getClass(): "my-alert danger" | "my-alert success" | "my-alert primary" {
 		switch (this.alert.type) {
 			case "danger":
@@ -161,8 +191,11 @@ export class AppComponent {
 				return "my-alert primary";
 		}
 	}
-
-	onClickButton(type: "danger" | "success" | "primary"): void {
+	/**
+	 * Change the alert style
+	 * @param type the flavour of the alert, based on the priority/severity.
+	 */
+	onChangeAlertType(type: "danger" | "success" | "primary"): void {
 		let alert = null;
 		switch (type) {
 			case "primary": {
