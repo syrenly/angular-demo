@@ -6,8 +6,8 @@ import { Component } from "@angular/core";
 	standalone: true,
 	imports: [NgClass, NgStyle],
 	template: `
-		<h4>Styles And Bootstrap</h4>
-		<div>
+		<h3>Styles And Bootstrap - Sample</h3>
+		<div class="mb-3">
 			📖 More about NgClass and NgStyle:
 			<a
 				href="https://codecraft.tv/courses/angular/built-in-directives/ngstyle-and-ngclass/"
@@ -15,18 +15,32 @@ import { Component } from "@angular/core";
 				>ngstyle-and-ngclass</a
 			>
 		</div>
-		<div class="mb-3">Click the buttons below to change the alert type</div>
-		<button type="button" (click)="onChangeAlertType('primary')">
-			Primary
-		</button>
-		<button type="button" (click)="onChangeAlertType('danger')">
-			Danger
-		</button>
-		<button type="button" (click)="onChangeAlertType('success')">
-			Success
-		</button>
+		<div class="d-flex align-items-center justify-content-start">
+			<span>Click the buttons below to change the alert type:&nbsp;</span>
+			<button
+				type="button"
+				class="me-3"
+				(click)="onChangeAlertType('primary')"
+			>
+				Primary
+			</button>
+			<button
+				type="button"
+				class="me-3"
+				(click)="onChangeAlertType('danger')"
+			>
+				Danger
+			</button>
+			<button
+				type="button"
+				class="me-3"
+				(click)="onChangeAlertType('success')"
+			>
+				Success
+			</button>
+		</div>
 
-		<h4>Dynamic class names</h4>
+		<h4 class="mt-3">Dynamic class names</h4>
 		<div
 			class="my-alert"
 			[class.danger]="alert.type === 'danger'"
@@ -36,7 +50,7 @@ import { Component } from "@angular/core";
 			{{ alert.message }}
 		</div>
 
-		<h4>Dynamic attribute class</h4>
+		<h4 class="mt-3">Dynamic attribute class</h4>
 		<div class="mb-3">
 			This case is not suggested, since every mouse/keyboard event
 			triggers change detection and the evaluation of the getClass method
@@ -45,7 +59,7 @@ import { Component } from "@angular/core";
 			{{ alert.message }}
 		</div>
 
-		<h4>NgClass</h4>
+		<h4 class="mt-3">NgClass</h4>
 		<div class="mb-3">
 			NgClass is a Directive that should be imported in the "imports"
 			array in the metadata. If more conditions are satisfied, the
@@ -88,7 +102,7 @@ import { Component } from "@angular/core";
 			{{ alert.message }}
 		</div>
 
-		<h4>Inline styles</h4>
+		<h4 class="mt-3">Inline styles</h4>
 		<div class="mb-3">
 			The directive style can be concatenate with css properties and
 			bounded to a property through data binding. Sometimes, the single
@@ -106,14 +120,12 @@ import { Component } from "@angular/core";
 			{{ alert.message }}
 		</div>
 
-		<h4>NgStyle</h4>
-
+		<h4 class="mt-3">NgStyle</h4>
 		<div class="my-alert" [ngStyle]="styles">
 			{{ text }}
 		</div>
 
-		<h4>Use Bootstrap Classes</h4>
-
+		<h4 class="mt-3">Use Bootstrap Classes</h4>
 		<div
 			class="alert"
 			[ngClass]="{
