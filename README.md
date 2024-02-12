@@ -9,3 +9,7 @@ A sample app that uses Bootstrap framework, NgClass and NgStyle directives, clas
 ## angular-w-tailwind
 
 A sample app that uses Tailwind and DaisyUI frameworks.
+
+## angular-demo
+
+Coming soon!
