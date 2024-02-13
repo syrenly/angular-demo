@@ -19,14 +19,14 @@ export class SlideGalleryComponent {
 		],
 		website: "https://www.fabiobiondi.dev",
 	};
-
+	/** Move to the previous image. If it is the first of the array, go to last */
 	previousImage(): void {
 		this.currentIndex =
 			this.currentIndex > 0
 				? this.currentIndex - 1
 				: this.product.images.length - 1;
 	}
-
+	/** Move to the next image. If it is the last of the array, return to first */
 	nextImage(): void {
 		this.currentIndex =
 			this.currentIndex < this.product.images.length - 1

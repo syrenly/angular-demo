@@ -1,17 +1,25 @@
 <div class="centered-page sm flex flex-col gap-3 items-center">
-	<h1 class="text-3xl">
+	<h1 class="text-3xl name">
 		{{ product.name }} {{ product.images[currentIndex].label }}
 	</h1>
 
 	<div class="flex gap-3 items-center justify-center w-full">
-		<button class="btn" (click)="previousImage()">prev</button>
+		<button
+			type="button"
+			class="btn previous-image"
+			(click)="previousImage()"
+		>
+			prev
+		</button>
 		<img
 			[src]="product.images[currentIndex].path"
 			[alt]="product.images[currentIndex].label"
 			[style.width.rem]="16"
 		/>
-		<button class="btn" (click)="nextImage()">next</button>
+		<button type="button" class="btn next-image" (click)="nextImage()">
+			next
+		</button>
 	</div>
 
-	<div>{{ product.website }}</div>
+	<div class="website">{{ product.website }}</div>
 </div>
