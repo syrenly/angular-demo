@@ -65,13 +65,11 @@ describe("SlideGalleryComponent", (): void => {
 	it("should have title of the first item by default", (): void => {
 		const compiled = fixture.nativeElement as HTMLElement;
 		const nameTag = compiled.querySelector<HTMLElement>(".name");
-		expect(nameTag?.textContent).toBe(
-			`${component.product.name} ${component.product.images[0].label}`
-		);
+		expect(nameTag?.textContent).toBe(`${component.technologies[0].name}`);
 	});
 	it("should show the web site name", (): void => {
 		const compiled = fixture.nativeElement as HTMLElement;
 		const websiteTag = compiled.querySelector<HTMLElement>(".website");
-		expect(websiteTag?.textContent).toBe(component.product.website);
+		expect(websiteTag?.textContent).toBe(component.technologies[0].website);
 	});
 });
