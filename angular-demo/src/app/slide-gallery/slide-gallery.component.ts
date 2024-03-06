@@ -15,10 +15,14 @@ import { ISlideGalleryModel } from "./slide-gallery-types";
 	styleUrl: "./slide-gallery.component.scss",
 })
 export class SlideGalleryComponent {
+	// #region Arrows icon
 	faArrowAltCircleLeft = faArrowAltCircleLeft;
 	faArrowAltCircleRight = faArrowAltCircleRight;
+	// #endregion
+	/** Current index for the gallery */
 	currentIndex = 0;
-	technologies: ISlideGalleryModel[] = [
+	/** List of technologies to be shown inn the gallery */
+	readonly technologies: ISlideGalleryModel[] = [
 		{
 			name: "Angular",
 			altName: "Angular logo",

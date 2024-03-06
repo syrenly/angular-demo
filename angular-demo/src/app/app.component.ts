@@ -9,6 +9,4 @@ import { SlideGalleryComponent } from "./slide-gallery/slide-gallery.component";
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
-export class AppComponent {
-	title = "angular-demo";
-}
+export class AppComponent {}

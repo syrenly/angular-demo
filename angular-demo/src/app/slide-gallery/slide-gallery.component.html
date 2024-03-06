@@ -1,9 +1,11 @@
 <div class="centered-page sm flex flex-col gap-3 items-center">
+	<!-- Title -->
 	<h1 class="text-3xl name">
 		{{ technologies[currentIndex].name }}
 	</h1>
 
 	<div class="flex gap-3 items-center justify-center w-full">
+		<!-- button left -->
 		<button
 			type="button"
 			class="btn previous-image"
@@ -14,12 +16,14 @@
 				[icon]="faArrowAltCircleLeft"
 			></fa-icon>
 		</button>
+		<!-- image -->
 		<img
 			[src]="technologies[currentIndex].path"
 			[alt]="technologies[currentIndex].name"
 			[style.width.px]="256"
 			[style.height.px]="256"
 		/>
+		<!-- button right -->
 		<button type="button" class="btn next-image" (click)="nextImage()">
 			<fa-icon
 				[style.font-size.rem]="1.5"
@@ -27,6 +31,7 @@
 			></fa-icon>
 		</button>
 	</div>
+	<!-- link to the technology related to the current index -->
 	<a
 		class="link link-primary"
 		href="{{ technologies[currentIndex].website }}"
