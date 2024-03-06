@@ -1,1 +1,24 @@
-<app-slide-gallery></app-slide-gallery>
+<div class="navbar bg-base-100 shadow-md">
+	<div class="navbar-start">
+		<div class="dropdown">
+			<div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+				<fa-icon
+					[style.font-size.rem]="1.5"
+					[icon]="faRectangleList"
+				></fa-icon>
+			</div>
+			<ul
+				tabindex="0"
+				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-md bg-base-100 rounded-box w-52"
+			>
+				<a routerLink="">Home</a>
+				<a routerLink="slide-gallery">Slide Gallery</a>
+			</ul>
+		</div>
+	</div>
+	<div class="navbar-center">
+		<a class="btn btn-ghost text-xl">Angular Demo</a>
+	</div>
+	<div class="navbar-end"></div>
+</div>
+<router-outlet></router-outlet>

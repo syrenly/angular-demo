@@ -1,12 +1,15 @@
 import { Component } from "@angular/core";
-import { RouterOutlet } from "@angular/router";
-import { SlideGalleryComponent } from "./slide-gallery/slide-gallery.component";
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { faRectangleList } from "@fortawesome/free-regular-svg-icons";
 
 @Component({
 	selector: "app-root",
 	standalone: true,
-	imports: [RouterOutlet, SlideGalleryComponent],
+	imports: [RouterOutlet, RouterLink, FontAwesomeModule],
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
-export class AppComponent {}
+export class AppComponent {
+	faRectangleList = faRectangleList;
+}
