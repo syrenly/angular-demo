@@ -9,7 +9,10 @@
 			class="btn previous-image"
 			(click)="previousImage()"
 		>
-			prev
+			<fa-icon
+				[style.font-size.rem]="1.5"
+				[icon]="faArrowAltCircleLeft"
+			></fa-icon>
 		</button>
 		<img
 			[src]="technologies[currentIndex].path"
@@ -18,10 +21,12 @@
 			[style.height.px]="256"
 		/>
 		<button type="button" class="btn next-image" (click)="nextImage()">
-			next
+			<fa-icon
+				[style.font-size.rem]="1.5"
+				[icon]="faArrowAltCircleRight"
+			></fa-icon>
 		</button>
 	</div>
-
 	<a
 		class="link link-primary"
 		href="{{ technologies[currentIndex].website }}"

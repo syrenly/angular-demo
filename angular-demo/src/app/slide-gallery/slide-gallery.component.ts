@@ -1,15 +1,22 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import {
+	faArrowAltCircleLeft,
+	faArrowAltCircleRight,
+} from "@fortawesome/free-regular-svg-icons";
 import { ISlideGalleryModel } from "./slide-gallery-types";
 
 @Component({
 	selector: "app-slide-gallery",
 	standalone: true,
-	imports: [CommonModule],
+	imports: [CommonModule, FontAwesomeModule],
 	templateUrl: "./slide-gallery.component.html",
 	styleUrl: "./slide-gallery.component.scss",
 })
 export class SlideGalleryComponent {
+	faArrowAltCircleLeft = faArrowAltCircleLeft;
+	faArrowAltCircleRight = faArrowAltCircleRight;
 	currentIndex = 0;
 	technologies: ISlideGalleryModel[] = [
 		{
