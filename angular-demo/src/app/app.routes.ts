@@ -13,4 +13,5 @@ export const routes: Routes = [
 		path: "slide-gallery",
 		component: SlideGalleryComponent,
 	},
+	{ path: "**", redirectTo: "/home", pathMatch: "full" },
 ];
