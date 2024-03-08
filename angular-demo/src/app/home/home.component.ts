@@ -7,7 +7,6 @@ import { faMap } from "@fortawesome/free-regular-svg-icons";
 	standalone: true,
 	imports: [FontAwesomeModule],
 	templateUrl: "./home.component.html",
-	styleUrl: "./home.component.scss",
 })
 export class HomeComponent {
 	faMap = faMap;
