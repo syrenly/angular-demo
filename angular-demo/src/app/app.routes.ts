@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { SlideGalleryComponent } from "./slide-gallery/slide-gallery.component";
+import { TodoListComponent } from "./todo-list/todo-list.component";
 
 export const routes: Routes = [
 	{ path: "", redirectTo: "/home", pathMatch: "full" },
@@ -12,6 +13,10 @@ export const routes: Routes = [
 	{
 		path: "slide-gallery",
 		component: SlideGalleryComponent,
+	},
+	{
+		path: "todo-list",
+		component: TodoListComponent,
 	},
 	{ path: "**", redirectTo: "/home", pathMatch: "full" },
 ];

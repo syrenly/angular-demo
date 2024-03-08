@@ -1,0 +1,27 @@
+<div class="centered-page flex flex-col gap-4 items-center">
+	<input
+		type="text"
+		(keydown.enter)="addTodo(input)"
+		#input
+		class="input input-bordered"
+		placeholder="Add new todo"
+	/>
+	<div
+		*ngFor="let todo of todos"
+		[ngClass]="{
+			'line-through': todo.completed
+		}"
+	>
+		<input
+			type="checkbox"
+			class="checkbox"
+			[checked]="todo.completed"
+			(change)="toggleTodo(todo.id)"
+		/>
+		{{ todo.title }}
+
+		<button class="btn" (click)="removeTodo(todo.id)">remove</button>
+	</div>
+
+	<button class="btn" (click)="saveAll()">Save</button>
+</div>
