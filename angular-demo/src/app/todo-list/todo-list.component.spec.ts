@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { TodoListComponent } from "./todo-list.component";
 
-describe("TodoListComponent", () => {
+describe("TodoListComponent", (): void => {
 	let component: TodoListComponent;
 	let fixture: ComponentFixture<TodoListComponent>;
 
-	beforeEach(async () => {
+	beforeEach(async (): Promise<void> => {
 		await TestBed.configureTestingModule({
 			imports: [TodoListComponent],
 		}).compileComponents();
@@ -16,7 +15,7 @@ describe("TodoListComponent", () => {
 		fixture.detectChanges();
 	});
 
-	it("should create", () => {
+	it("should create", (): void => {
 		expect(component).toBeTruthy();
 	});
 });
