@@ -1,10 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import {
-	faArrowAltCircleLeft,
-	faArrowAltCircleRight,
-} from "@fortawesome/free-regular-svg-icons";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { ISlideGalleryModel } from "./slide-gallery-types";
 
 @Component({
@@ -16,8 +13,8 @@ import { ISlideGalleryModel } from "./slide-gallery-types";
 })
 export class SlideGalleryComponent {
 	// #region Arrows icon
-	faArrowAltCircleLeft = faArrowAltCircleLeft;
-	faArrowAltCircleRight = faArrowAltCircleRight;
+	arrowLeft = faArrowLeft;
+	arrowRight = faArrowRight;
 	// #endregion
 	/** Current index for the gallery */
 	currentIndex = 0;

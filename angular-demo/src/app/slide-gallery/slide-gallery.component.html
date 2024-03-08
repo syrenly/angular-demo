@@ -11,10 +11,7 @@
 			class="btn previous-image"
 			(click)="previousImage()"
 		>
-			<fa-icon
-				[style.font-size.rem]="1.5"
-				[icon]="faArrowAltCircleLeft"
-			></fa-icon>
+			<fa-icon [style.font-size.rem]="1.5" [icon]="arrowLeft"></fa-icon>
 		</button>
 		<!-- image -->
 		<img
@@ -25,10 +22,7 @@
 		/>
 		<!-- button right -->
 		<button type="button" class="btn next-image" (click)="nextImage()">
-			<fa-icon
-				[style.font-size.rem]="1.5"
-				[icon]="faArrowAltCircleRight"
-			></fa-icon>
+			<fa-icon [style.font-size.rem]="1.5" [icon]="arrowRight"></fa-icon>
 		</button>
 	</div>
 	<!-- link to the technology related to the current index -->

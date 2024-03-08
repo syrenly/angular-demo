@@ -1,8 +1,7 @@
 import { Component } from "@angular/core";
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { faRectangleList } from "@fortawesome/free-regular-svg-icons";
-
+import { faList } from "@fortawesome/free-solid-svg-icons";
 @Component({
 	selector: "app-root",
 	standalone: true,
@@ -11,5 +10,5 @@ import { faRectangleList } from "@fortawesome/free-regular-svg-icons";
 	styleUrl: "./app.component.scss",
 })
 export class AppComponent {
-	faRectangleList = faRectangleList;
+	listIcon = faList;
 }
