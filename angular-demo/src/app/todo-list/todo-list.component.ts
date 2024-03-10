@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit, Signal, WritableSignal, computed, signal } from "@angular/core";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { ITodoModel } from "./todo-types";
@@ -12,15 +12,19 @@ import { ITodoModel } from "./todo-types";
 	styleUrl: "./todo-list.component.scss",
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
 	/** Icon used to remove todos */
 	xIcon = faX;
 	/** List of todos */
-	todos: ITodoModel[] = [
+	todos: WritableSignal<ITodoModel[]> = signal<ITodoModel[]>([
 		{ id: 1, title: "Todo 1", completed: true },
 		{ id: 2, title: "Todo 2", completed: false },
 		{ id: 3, title: "Todo 3", completed: true },
-	];
+	]);
+	undoneCount: Signal<number> = computed((): number => (this.todos().filter(t => !t.completed) || []).length);
+	doneCount: Signal<number> = computed((): number => (this.todos().filter(t => t.completed) || []).length);
+
+	ngOnInit(): void {}
 	/**
 	 * Method to add a new todo
 	 * @param input the html element that contains the name of todo. Once the todo is added, the input will be cleared
@@ -34,7 +38,7 @@ export class TodoListComponent {
 			title: input.value,
 			completed: false,
 		};
-		this.todos = [...this.todos, newTodo];
+		this.todos.update((todos: ITodoModel[]): ITodoModel[] => [...todos, newTodo]);
 		input.value = "";
 	}
 	/**
@@ -42,16 +46,17 @@ export class TodoListComponent {
 	 * @param id f the todo
 	 */
 	removeTodo(id: number): void {
-		this.todos = this.todos.filter((todo): boolean => todo.id !== id);
+		this.todos.update((todos: ITodoModel[]): ITodoModel[] => todos.filter((todo): boolean => todo.id !== id));
 	}
 	/**
 	 * Method to switch the todo from positive to negative state and vice versa
 	 * @param id f the todo
 	 */
 	toggleTodo(id: number): void {
-		this.todos = this.todos.map(
-			(todo: ITodoModel): ITodoModel =>
-				todo.id === id ? { ...todo, completed: !todo.completed } : todo
+		this.todos.update((todos: ITodoModel[]): ITodoModel[] =>
+			todos.map(
+				(todo: ITodoModel): ITodoModel => (todo.id === id ? { ...todo, completed: !todo.completed } : todo),
+			),
 		);
 	}
 	/** Show the todos in the console */
