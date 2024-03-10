@@ -9,5 +9,5 @@ import { faMap } from "@fortawesome/free-solid-svg-icons";
 	templateUrl: "./home.component.html",
 })
 export class HomeComponent {
-	faMap = faMap;
+	mapIcon = faMap;
 }

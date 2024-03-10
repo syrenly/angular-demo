@@ -13,8 +13,8 @@ import { ISlideGalleryModel } from "./slide-gallery-types";
 })
 export class SlideGalleryComponent {
 	// #region Arrows icon
-	arrowLeft = faArrowLeft;
-	arrowRight = faArrowRight;
+	arrowLeftIcon = faArrowLeft;
+	arrowRightIcon = faArrowRight;
 	// #endregion
 	/** Current index for the gallery */
 	currentIndex = 0;
@@ -41,16 +41,10 @@ export class SlideGalleryComponent {
 	];
 	/** Move to the previous image. If it is the first of the array, go to last */
 	previousImage(): void {
-		this.currentIndex =
-			this.currentIndex > 0
-				? this.currentIndex - 1
-				: this.technologies.length - 1;
+		this.currentIndex = this.currentIndex > 0 ? this.currentIndex - 1 : this.technologies.length - 1;
 	}
 	/** Move to the next image. If it is the last of the array, return to first */
 	nextImage(): void {
-		this.currentIndex =
-			this.currentIndex < this.technologies.length - 1
-				? this.currentIndex + 1
-				: 0;
+		this.currentIndex = this.currentIndex < this.technologies.length - 1 ? this.currentIndex + 1 : 0;
 	}
 }

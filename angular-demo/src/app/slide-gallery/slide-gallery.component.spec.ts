@@ -23,8 +23,7 @@ describe("SlideGalleryComponent", (): void => {
 			component.currentIndex = 2;
 			const buttonSpy = spyOn(component, "previousImage");
 			const compiled = fixture.nativeElement as HTMLElement;
-			const buttons =
-				compiled.querySelectorAll<HTMLElement>(".previous-image");
+			const buttons = compiled.querySelectorAll<HTMLElement>(".previous-image");
 			buttons[0].click();
 			expect(buttonSpy).toHaveBeenCalled();
 			expect(component.currentIndex).toEqual(1);
@@ -33,8 +32,7 @@ describe("SlideGalleryComponent", (): void => {
 			component.currentIndex = 0;
 			const buttonSpy = spyOn(component, "previousImage");
 			const compiled = fixture.nativeElement as HTMLElement;
-			const buttons =
-				compiled.querySelectorAll<HTMLElement>(".previous-image");
+			const buttons = compiled.querySelectorAll<HTMLElement>(".previous-image");
 			buttons[0].click();
 			expect(buttonSpy).toHaveBeenCalled();
 			expect(component.currentIndex).toEqual(2);
@@ -45,8 +43,7 @@ describe("SlideGalleryComponent", (): void => {
 			component.currentIndex = 1;
 			const buttonSpy = spyOn(component, "nextImage");
 			const compiled = fixture.nativeElement as HTMLElement;
-			const buttons =
-				compiled.querySelectorAll<HTMLElement>(".next-image");
+			const buttons = compiled.querySelectorAll<HTMLElement>(".next-image");
 			buttons[0].click();
 			expect(buttonSpy).toHaveBeenCalled();
 			expect(component.currentIndex).toEqual(2);
@@ -55,8 +52,7 @@ describe("SlideGalleryComponent", (): void => {
 			component.currentIndex = 2;
 			const buttonSpy = spyOn(component, "nextImage");
 			const compiled = fixture.nativeElement as HTMLElement;
-			const buttons =
-				compiled.querySelectorAll<HTMLElement>(".next-image");
+			const buttons = compiled.querySelectorAll<HTMLElement>(".next-image");
 			buttons[0].click();
 			expect(buttonSpy).toHaveBeenCalled();
 			expect(component.currentIndex).toEqual(0);

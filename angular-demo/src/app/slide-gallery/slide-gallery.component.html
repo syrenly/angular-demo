@@ -9,27 +9,32 @@
 		<button
 			type="button"
 			class="btn previous-image"
-			(click)="previousImage()"
-		>
-			<fa-icon [style.font-size.rem]="1.5" [icon]="arrowLeft"></fa-icon>
+			(click)="previousImage()">
+			<fa-icon
+				[style.font-size.rem]="1.5"
+				[icon]="arrowLeftIcon"></fa-icon>
 		</button>
 		<!-- image -->
 		<img
 			[src]="technologies[currentIndex].path"
 			[alt]="technologies[currentIndex].name"
 			[style.width.px]="256"
-			[style.height.px]="256"
-		/>
+			[style.height.px]="256" />
 		<!-- button right -->
-		<button type="button" class="btn next-image" (click)="nextImage()">
-			<fa-icon [style.font-size.rem]="1.5" [icon]="arrowRight"></fa-icon>
+		<button
+			type="button"
+			class="btn next-image"
+			(click)="nextImage()">
+			<fa-icon
+				[style.font-size.rem]="1.5"
+				[icon]="arrowRightIcon"></fa-icon>
 		</button>
 	</div>
 	<!-- link to the technology related to the current index -->
 	<a
 		class="link link-primary"
 		href="{{ technologies[currentIndex].website }}"
-		target="_blank"
-		>{{ technologies[currentIndex].website }}</a
-	>
+		target="_blank">
+		{{ technologies[currentIndex].website }}
+	</a>
 </div>
