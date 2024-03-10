@@ -22,9 +22,10 @@
 			<button
 				class="btn btn-circle ml-4"
 				(click)="removeTodo(todo.id)">
-				<fa-icon
-					[style.font-size.rem]="1"
-					[icon]="xIcon"></fa-icon>
+				<app-icon
+					unit="rem"
+					[size]="1"
+					icon="x"></app-icon>
 			</button>
 		</div>
 	}

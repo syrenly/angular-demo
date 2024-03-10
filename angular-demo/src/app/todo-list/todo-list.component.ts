@@ -1,20 +1,17 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, OnInit, Signal, WritableSignal, computed, signal } from "@angular/core";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import { IconComponent } from "../icon/icon.component";
 import { ITodoModel } from "./todo-types";
 // Hint: save todos in browser storage
 @Component({
 	selector: "app-todo-list",
 	standalone: true,
-	imports: [CommonModule, FontAwesomeModule],
+	imports: [CommonModule, IconComponent],
 	templateUrl: "./todo-list.component.html",
 	styleUrl: "./todo-list.component.scss",
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListComponent implements OnInit {
-	/** Icon used to remove todos */
-	xIcon = faX;
 	/** List of todos */
 	todos: WritableSignal<ITodoModel[]> = signal<ITodoModel[]>([
 		{ id: 1, title: "Todo 1", completed: true },

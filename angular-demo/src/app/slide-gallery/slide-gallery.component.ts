@@ -1,21 +1,16 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { IconComponent } from "../icon/icon.component";
 import { ISlideGalleryModel } from "./slide-gallery-types";
 
 @Component({
 	selector: "app-slide-gallery",
 	standalone: true,
-	imports: [CommonModule, FontAwesomeModule],
+	imports: [CommonModule, IconComponent],
 	templateUrl: "./slide-gallery.component.html",
 	styleUrl: "./slide-gallery.component.scss",
 })
 export class SlideGalleryComponent {
-	// #region Arrows icon
-	arrowLeftIcon = faArrowLeft;
-	arrowRightIcon = faArrowRight;
-	// #endregion
 	/** Current index for the gallery */
 	currentIndex = 0;
 	/** List of technologies to be shown inn the gallery */

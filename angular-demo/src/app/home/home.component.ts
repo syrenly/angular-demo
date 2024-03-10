@@ -1,13 +1,10 @@
 import { Component } from "@angular/core";
-import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
-import { faMap } from "@fortawesome/free-solid-svg-icons";
+import { IconComponent } from "../icon/icon.component";
 
 @Component({
 	selector: "app-home",
 	standalone: true,
-	imports: [FontAwesomeModule],
+	imports: [IconComponent],
 	templateUrl: "./home.component.html",
 })
-export class HomeComponent {
-	mapIcon = faMap;
-}
+export class HomeComponent {}
