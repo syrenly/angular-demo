@@ -1,3 +1,11 @@
 :host {
 	display: block;
+	height: 100%;
+	position: relative;
+	.inner-wrapper {
+		height: inherit;
+	}
+	.alert {
+		width: fit-content;
+	}
 }

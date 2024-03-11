@@ -1,5 +1,5 @@
 <!-- Hint: align items using responsiveness and cols -->
-<div class="centered-page flex flex-col gap-4 items-center">
+<div class="centered-page flex flex-col gap-4 items-center content-between inner-wrapper">
 	<input
 		type="text"
 		(keydown.enter)="addTodo(input)"
@@ -31,7 +31,10 @@
 	}
 	<button
 		class="btn"
-		(click)="saveAll()">
-		Save
+		(click)="resetAll()">
+		Reset All
 	</button>
+	<div class="alert alert-info centered-page">
+		<span>{{ info }}</span>
+	</div>
 </div>
