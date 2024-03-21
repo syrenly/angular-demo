@@ -1,0 +1,49 @@
+<!-- Hint: align items using responsiveness and cols -->
+
+<div class="flex content-between">
+	<div class="flex-1">
+		<input
+			type="text"
+			(keydown.enter)="addTodo(input)"
+			#input
+			class="input input-bordered"
+			placeholder="Add new todo" />
+		<button
+			class="btn"
+			(click)="resetAll()">
+			Reset All
+		</button>
+		<div class="alert alert-info">
+			<span>{{ info }}</span>
+		</div>
+	</div>
+	<div class="divider lg:divider-horizontal"></div>
+	<div class="flex-1">
+		<h4>Todo List</h4>
+		<div class="inner-wrapper">
+			@for (todo of todos(); track todo.id) {
+				<div class="flex items-center">
+					<input
+						type="checkbox"
+						class="checkbox mr-4"
+						[checked]="todo.completed"
+						(change)="toggleTodo(todo.id)" />
+					<span
+						[ngClass]="{
+							'line-through': todo.completed
+						}">
+						{{ todo.title }}
+					</span>
+					<button
+						class="btn btn-circle ml-4"
+						(click)="removeTodo(todo.id)">
+						<app-icon
+							unit="rem"
+							[size]="1"
+							icon="x"></app-icon>
+					</button>
+				</div>
+			}
+		</div>
+	</div>
+</div>
