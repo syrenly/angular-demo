@@ -19,8 +19,9 @@ export class IconComponent implements OnChanges {
 	@Input() unit: string = "rem";
 
 	ngOnChanges(changes: SimpleChanges): void {
-		if (changes["icon"]) {
-			this.selectedIcon = ICON_DICTIONARY[this.icon];
+		const icon = changes["icon"]?.currentValue;
+		if (icon) {
+			this.selectedIcon = ICON_DICTIONARY[icon];
 		}
 	}
 }

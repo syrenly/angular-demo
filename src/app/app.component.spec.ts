@@ -78,18 +78,4 @@ describe("AppComponent", (): void => {
 			expect(textContent).toBe("Todo List");
 		});
 	});
-	// describe("should navigate on each route", (): void => {
-	// 	it("case home", fakeAsync((): void => {
-	// 		const links: DebugElement[] = fixture.debugElement.queryAll(By.css(`li a`));
-	// 		links[0].triggerEventHandler("click", { button: 0 });
-	// 		tick(10);
-	// 		expect(location.path()).toBe("");
-	// 	}));
-	// 	it("case slide gallery", fakeAsync((): void => {
-	// 		const links: DebugElement[] = fixture.debugElement.queryAll(By.css(`li a`));
-	// 		links[1].triggerEventHandler("click", { button: 0 });
-	// 		tick(10);
-	// 		expect(location.path()).toBe("slide-gallery");
-	// 	}));
-	// });
 });
