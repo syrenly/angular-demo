@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { IconComponent } from "./icon.component";
 
 describe("IconComponent", () => {
@@ -7,11 +9,12 @@ describe("IconComponent", () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [IconComponent],
+			imports: [IconComponent, FontAwesomeModule],
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(IconComponent);
 		component = fixture.componentInstance;
+		component.selectedIcon = faArrowLeft;
 		fixture.detectChanges();
 	});
 
