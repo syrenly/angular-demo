@@ -1,8 +1,12 @@
 # AngularDemo
 
-👋 Hi, I’m @syrenly and welcome to **angular-demo** repo! Here I' m studying Angular 17 and developing sample projects. Feel free to read my notes and study with me 🤗.
+👋 Hi, I’m @syrenly and welcome to **angular-demo** repo!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+Here I' m studying Angular 17 and developing sample projects. Feel free to read my notes and study with me 🤗. 🚧 This is a work in progress 🚧
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3 and it is currently at version 17.3.1.
+
+⚗️⚗️⚗️ Unit test in progress...
 
 ## Development server
 
@@ -19,6 +23,19 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+### Last code coverage
+
+Run `ng test --no-watch --code-coverage` to get stats about the code coverage. Current:
+
+```
+=============================== Coverage summary ===============================
+Statements   : 60% ( 27/45 )
+Branches     : 44.44% ( 8/18 )
+Functions    : 40.9% ( 9/22 )
+Lines        : 64.7% ( 22/34 )
+================================================================================
+```
 
 ## Running end-to-end tests
 
