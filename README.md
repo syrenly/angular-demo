@@ -1,12 +1,12 @@
-# AngularDemo
+# AngularWTailwind
 
-👋 Hi, I’m @syrenly and welcome to **angular-demo** repo!
+👋 Hi, I’m @syrenly and welcome to **angular-w-tailwind** repo!
 
-Here I' m studying Angular 17 and developing sample projects. Feel free to read my notes and study with me 🤗. 🚧 This is a work in progress 🚧
+This is a sample app that uses Tailwind and DaisyUI frameworks.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3 and it is currently at version 17.3.1.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2, currently updated to version 17.3.1.
 
-⚗️⚗️⚗️ Unit test in progress...
+⚗️ Unit tests implemented.
 
 ## Development server
 
@@ -30,17 +30,19 @@ Run `ng test --no-watch --code-coverage` to get stats about the code coverage. C
 
 ```
 =============================== Coverage summary ===============================
-Statements   : 60% ( 27/45 )
-Branches     : 44.44% ( 8/18 )
-Functions    : 40.9% ( 9/22 )
-Lines        : 64.7% ( 22/34 )
+Statements   : 100% ( 29/29 )
+Branches     : 100% ( 4/4 )
+Functions    : 100% ( 5/5 )
+Lines        : 100% ( 25/25 )
 ================================================================================
 ```
 
-## Running end-to-end tests
+## Docker
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install docker in your machine. From the root folder of this application, run
 
-## Further help
+`docker build -t angular-demo:latest .`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+It will need a couple of minutes to set up the container the first time. The following runs will be faster.
+
+Run `docker-compose up`
