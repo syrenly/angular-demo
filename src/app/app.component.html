@@ -13,10 +13,11 @@
 			<ul
 				tabindex="0"
 				class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52">
-				<li><a routerLink="">Home</a></li>
-				<li><a routerLink="slide-gallery">Slide Gallery</a></li>
-				<li><a routerLink="todo-list">Todo List</a></li>
-				<li><a routerLink="stepper">Stepper</a></li>
+				@for (route of routes; track $index) {
+					<li>
+						<a routerLink="{{ route.folder }}">{{ route.name }}</a>
+					</li>
+				}
 			</ul>
 		</div>
 	</div>

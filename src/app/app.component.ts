@@ -8,4 +8,27 @@ import { IconComponent } from "./icon/icon.component";
 	templateUrl: "./app.component.html",
 	styleUrl: "./app.component.scss",
 })
-export class AppComponent {}
+export class AppComponent {
+	routes: { folder: string; name: string }[] = [
+		{
+			folder: "",
+			name: "Home",
+		},
+		{
+			folder: "slide-gallery",
+			name: "Slide Gallery",
+		},
+		{
+			folder: "todo-list",
+			name: "Todo List",
+		},
+		{
+			folder: "stepper",
+			name: "Stepper",
+		},
+		{
+			folder: "phone",
+			name: "Phone",
+		},
+	];
+}
