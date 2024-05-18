@@ -1,5 +1,14 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, Signal, WritableSignal, computed, effect, signal } from "@angular/core";
+import {
+	ChangeDetectionStrategy,
+	Component,
+	OnInit,
+	Signal,
+	WritableSignal,
+	computed,
+	effect,
+	signal,
+} from "@angular/core";
 import { IconComponent } from "../icon/icon.component";
 import { ITodoModel } from "./todo-types";
 
@@ -12,13 +21,9 @@ import { ITodoModel } from "./todo-types";
 	styleUrl: "./todo-list.component.scss",
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoListComponent {
+export class TodoListComponent implements OnInit {
 	/** List of todos */
-	todos: WritableSignal<ITodoModel[]> = signal<ITodoModel[]>([
-		{ id: 1, title: "Todo 1", completed: true },
-		{ id: 2, title: "Todo 2", completed: false },
-		{ id: 3, title: "Todo 3", completed: true },
-	]);
+	todos: WritableSignal<ITodoModel[]> = signal<ITodoModel[]>([]);
 	/** number of item to be done */
 	undoneCount: Signal<number> = computed((): number => (this.todos().filter(t => !t.completed) || []).length);
 	/** number of item done */
@@ -29,6 +34,13 @@ export class TodoListComponent {
 		effect((): void => {
 			this.info = `${this.undoneCount() || 0} tasks left`;
 		});
+	}
+	ngOnInit(): void {
+		this.todos.set([
+			{ id: 1, title: "Todo 1", completed: true },
+			{ id: 2, title: "Todo 2", completed: false },
+			{ id: 3, title: "Todo 3", completed: true },
+		]);
 	}
 	/**
 	 * Method to add a new todo
