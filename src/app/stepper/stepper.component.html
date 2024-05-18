@@ -1,0 +1,48 @@
+<div class="centered-page sm">
+	@switch (currentStep()) {
+		@case ("initial") {
+			<h4>Step 1</h4>
+			<button
+				class="btn"
+				(click)="onChangeStep('step2')">
+				Next
+			</button>
+		}
+
+		@case ("step1") {
+			<h4>Step 2</h4>
+			<button
+				class="btn"
+				(click)="onChangeStep('final')">
+				Next
+			</button>
+		}
+
+		@case ("step2") {
+			<h4>Step 2</h4>
+			<button
+				class="btn"
+				(click)="onChangeStep('final')">
+				Next
+			</button>
+		}
+
+		@case ("final") {
+			<h4>Final Step</h4>
+			<button
+				class="btn"
+				(click)="onChangeStep('initial')">
+				Reset
+			</button>
+		}
+
+		@default {
+			<h1>Welcome</h1>
+			<button
+				class="btn"
+				(click)="onChangeStep('initial')">
+				Next
+			</button>
+		}
+	}
+</div>
