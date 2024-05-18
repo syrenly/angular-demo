@@ -14,9 +14,9 @@ import { ICON_DICTIONARY } from "./icon-utils";
 })
 export class IconComponent implements OnChanges {
 	@Input() icon = "";
-	selectedIcon!: IconDefinition;
 	@Input() size: number = 1;
 	@Input() unit: string = "rem";
+	selectedIcon!: IconDefinition;
 
 	ngOnChanges(changes: SimpleChanges): void {
 		const icon = changes["icon"]?.currentValue;

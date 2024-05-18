@@ -1,45 +1,6 @@
 import { Component, Provider } from "@angular/core";
-import {
-	ActivationEnd,
-	ActivationStart,
-	ChildActivationEnd,
-	ChildActivationStart,
-	GuardsCheckEnd,
-	GuardsCheckStart,
-	NavigationCancel,
-	NavigationEnd,
-	NavigationError,
-	NavigationExtras,
-	NavigationSkipped,
-	NavigationStart,
-	ResolveEnd,
-	ResolveStart,
-	RouteConfigLoadEnd,
-	RouteConfigLoadStart,
-	Router,
-	Routes,
-	RoutesRecognized,
-	Scroll,
-} from "@angular/router";
+import { NavigationEnd, NavigationExtras, Router, Routes } from "@angular/router";
 import { from } from "rxjs";
-type Event_2 =
-	| NavigationStart
-	| NavigationEnd
-	| NavigationCancel
-	| NavigationError
-	| RoutesRecognized
-	| GuardsCheckStart
-	| GuardsCheckEnd
-	| RouteConfigLoadStart
-	| RouteConfigLoadEnd
-	| ChildActivationStart
-	| ChildActivationEnd
-	| ActivationStart
-	| ActivationEnd
-	| Scroll
-	| ResolveStart
-	| ResolveEnd
-	| NavigationSkipped;
 
 @Component({
 	selector: "dummy1",
