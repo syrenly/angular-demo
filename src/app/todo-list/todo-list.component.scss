@@ -1,11 +1,26 @@
 :host {
-	display: block;
+	display: flex;
+	justify-content: center;
 	height: 100%;
-	position: relative;
-	.inner-wrapper {
-		height: inherit;
-	}
-	.alert {
-		width: fit-content;
+}
+.main-column {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.todos-wrapper {
+	height: 100%;
+	overflow: auto;
+	flex-grow: 1;
+}
+.alert {
+	width: fit-content;
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+}
+@media screen and (min-width: 900px) {
+	.main-column {
+		margin: 0 25%;
 	}
 }

@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Signal, WritableSignal, computed, effect, signal } from "@angular/core";
 import { IconComponent } from "../icon/icon.component";
 import { ITodoModel } from "./todo-types";
-// Hint: save todos in browser storage
+
 @Component({
 	selector: "app-todo-list",
 	standalone: true,
@@ -15,6 +15,33 @@ import { ITodoModel } from "./todo-types";
 export class TodoListComponent {
 	/** List of todos */
 	todos: WritableSignal<ITodoModel[]> = signal<ITodoModel[]>([
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
+		{ id: 1, title: "Todo 1", completed: true },
+		{ id: 2, title: "Todo 2", completed: false },
+		{ id: 3, title: "Todo 3", completed: true },
 		{ id: 1, title: "Todo 1", completed: true },
 		{ id: 2, title: "Todo 2", completed: false },
 		{ id: 3, title: "Todo 3", completed: true },
@@ -37,7 +64,6 @@ export class TodoListComponent {
 	addTodo(input: HTMLInputElement): void {
 		// do not add empty strings
 		if (!input.value || !input.value.trim()) return;
-		// Hint: implement reactive form to make a better check with error messages
 		const newTodo: ITodoModel = {
 			id: Date.now(),
 			title: input.value,
