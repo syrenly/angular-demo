@@ -1,4 +1,4 @@
-<div class="main-column">
+<div class="main-column rounded-2xl bg-gray-800 shadow-lg">
 	<h4 class="self-center">Todo List</h4>
 	<div class="flex self-center my-4">
 		<input
@@ -13,7 +13,7 @@
 			Reset All
 		</button>
 	</div>
-	<div class="todos-wrapper">
+	<div class="todos-wrapper px-3">
 		@for (todo of todos(); track todo.id) {
 			<div class="flex items-center">
 				<input
