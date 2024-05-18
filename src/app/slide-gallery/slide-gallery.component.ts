@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { IconComponent } from "../icon/icon.component";
 import { ISlideGalleryModel } from "./slide-gallery-types";
 
@@ -9,6 +9,7 @@ import { ISlideGalleryModel } from "./slide-gallery-types";
 	imports: [CommonModule, IconComponent],
 	templateUrl: "./slide-gallery.component.html",
 	styleUrl: "./slide-gallery.component.scss",
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SlideGalleryComponent {
 	/** Current index for the gallery */
@@ -16,9 +17,15 @@ export class SlideGalleryComponent {
 	/** List of technologies to be shown inn the gallery */
 	readonly technologies: ISlideGalleryModel[] = [
 		{
-			name: "Angular",
-			altName: "Angular logo",
+			name: "Angular 17",
+			altName: "Angular 17 logo",
 			path: "assets/images/angular.webp",
+			website: "https://angular.dev/",
+		},
+		{
+			name: "Angular 16",
+			altName: "Angular 16 logo",
+			path: "assets/images/angular2.webp",
 			website: "https://angular.io/",
 		},
 		{
