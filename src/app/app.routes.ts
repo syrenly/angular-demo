@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
+import { PhoneComponent } from "./phone/phone.component";
 import { SlideGalleryComponent } from "./slide-gallery/slide-gallery.component";
 import { StepperComponent } from "./stepper/stepper.component";
 import { TodoListComponent } from "./todo-list/todo-list.component";
@@ -22,6 +23,10 @@ export const routes: Routes = [
 	{
 		path: "stepper",
 		component: StepperComponent,
+	},
+	{
+		path: "phone",
+		component: PhoneComponent,
 	},
 	{ path: "**", redirectTo: "/home", pathMatch: "full" },
 ];
