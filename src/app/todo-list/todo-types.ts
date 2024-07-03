@@ -3,3 +3,7 @@ export type ITodoModel = {
 	title: string;
 	completed: boolean;
 };
+
+export interface StoreType {
+	count: number;
+}

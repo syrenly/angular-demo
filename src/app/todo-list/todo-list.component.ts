@@ -9,8 +9,11 @@ import {
 	effect,
 	signal,
 } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { IconComponent } from "../icon/icon.component";
-import { ITodoModel } from "./todo-types";
+import { decrement, increment } from "./todo-list.actions";
+import { ITodoModel, StoreType } from "./todo-types";
 
 @Component({
 	selector: "app-todo-list",
@@ -29,8 +32,11 @@ export class TodoListComponent implements OnInit {
 	/** number of item done */
 	doneCount: Signal<number> = computed((): number => (this.todos().filter(t => t.completed) || []).length);
 	/** message to show how many items are left */
-	info = `${this.undoneCount() || 0} tasks left`;
-	constructor() {
+	info = "";
+	countTodos$!: Observable<number>;
+
+	constructor(private readonly store: Store<StoreType>) {
+		this.countTodos$ = this.store.select("count");
 		effect((): void => {
 			this.info = `${this.undoneCount() || 0} tasks left`;
 		});
@@ -41,6 +47,7 @@ export class TodoListComponent implements OnInit {
 			{ id: 2, title: "Todo 2", completed: false },
 			{ id: 3, title: "Todo 3", completed: true },
 		]);
+		this.info = `${this.undoneCount() || 0} tasks left`;
 	}
 	/**
 	 * Method to add a new todo
@@ -56,6 +63,7 @@ export class TodoListComponent implements OnInit {
 		};
 		this.todos.update((todos: ITodoModel[]): ITodoModel[] => [...todos, newTodo]);
 		input.value = "";
+		this.store.dispatch(increment());
 	}
 	/**
 	 * Method to remove a todo using its id
@@ -63,6 +71,7 @@ export class TodoListComponent implements OnInit {
 	 */
 	removeTodo(id: number): void {
 		this.todos.update((todos: ITodoModel[]): ITodoModel[] => todos.filter((todo): boolean => todo.id !== id));
+		this.store.dispatch(decrement());
 	}
 	/**
 	 * Method to switch the todo from positive to negative state and vice versa
